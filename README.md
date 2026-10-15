@@ -2,7 +2,7 @@
 
 선생님들은 **로그인 없이** 링크만 열어 소속·이름을 적고 예약합니다. 관리자만 이름+PIN으로 들어갑니다.
 
-구조: **화면(web/)은 일반 웹 주소**, **데이터는 구글 시트 + Apps Script(JSON API)**.
+구조: **화면(docs/)은 일반 웹 주소**, **데이터는 구글 시트 + Apps Script(JSON API)**.
 화면이 Apps Script 밖에 있어서 교사들의 구글 계정 상태와 무관하게 열립니다.
 
 ## 1. 구글 시트 + Apps Script 만들기
@@ -24,12 +24,12 @@
 - 교시, 수업 잠금, 예외일은 웹 화면의 "관리자 설정" 탭에서 입력한다.
 
 ## 3. 화면 올리기 (GitHub Pages)
-1. `web/config.js` 의 `API_URL` 에 위의 `.../exec` 주소를 붙여 넣는다.
-2. `web/` 폴더 내용(`index.html`, `config.js`, `emblem.png`)을 GitHub 저장소에 올리고 `Settings → Pages` 에서 켠다.
-3. 나온 주소를 교사들에게 공유한다.
+1. `docs/config.js` 의 `API_URL` 에 위의 `.../exec` 주소를 붙여 넣는다.
+2. 저장소를 GitHub에 올리고 `Settings → Pages → Build and deployment` 에서 `Deploy from a branch`, 브랜치 `main`, 폴더 `/docs` 를 골라 저장한다. (화면 파일이 `docs/` 폴더에 있다: `index.html`, `config.js`, `emblem.png`)
+3. 1~2분 뒤 Pages 설정 화면 위쪽에 나오는 주소(`https://<조직>.github.io/room-booking/`)를 교사들에게 공유한다.
 
 ## 4. 로컬에서 미리 보기
-`API_URL` 을 비워 둔 채 `web/index.html` 을 서버로 열면 가짜 데이터(모의 모드)로 동작한다. (관리자 이름 `관리자` / PIN `0000`)
+`API_URL` 을 비워 둔 채 `docs/index.html` 을 서버로 열면 가짜 데이터(모의 모드)로 동작한다. (관리자 이름 `관리자` / PIN `0000`)
 
 ## 사용 방법
 - **선생님**: 링크 접속 → 소속·이름 입력(기기에 기억됨) → 빈 칸 선택 → 사용 목적 입력 → 예약하기.
